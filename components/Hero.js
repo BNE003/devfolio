@@ -1,10 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import config from "@/config";
 
 const Hero = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-base-100 to-base-200">
-      <div className="max-w-7xl mx-auto px-8 py-20 lg:py-32">
+      <div className="max-w-7xl mx-auto px-8 py-12 lg:py-20">
         <div className="flex flex-col items-center text-center gap-8 lg:gap-12">
           {/* Badge */}
           <div className="badge badge-lg badge-primary badge-outline">
@@ -12,7 +13,7 @@ const Hero = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="font-extrabold text-5xl lg:text-7xl tracking-tight max-w-4xl">
+          <h1 className="font-extrabold text-4xl lg:text-6xl tracking-tight max-w-4xl">
             Collect & Prioritize
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               {" "}Feature Requests{" "}
@@ -48,34 +49,34 @@ const Hero = () => {
             </Link>
           </div>
 
-          {/* Screenshot Placeholder with Code Snippet Overlay */}
+          {/* Screenshots with Code Snippet Overlay */}
           <div className="mt-16 w-full max-w-6xl relative">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl"></div>
-              <div className="relative bg-base-300 rounded-2xl shadow-2xl border border-base-content/10 aspect-video flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-24 h-24 mx-auto text-base-content/20"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"
-                    />
-                  </svg>
-                  <p className="text-base-content/40 font-mono text-sm">
-                    Dashboard Screenshot Placeholder
-                  </p>
+            <div className="flex flex-col lg:flex-row gap-8 items-center justify-center">
+              {/* Dashboard Screenshot */}
+              <div className="relative flex-1 max-w-3xl">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl"></div>
+                <div className="relative rounded-2xl shadow-2xl border border-base-content/10 overflow-hidden">
+                  <Image
+                    src="/dashboard.png"
+                    alt="FeatureFlow Dashboard"
+                    width={1200}
+                    height={675}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </div>
+              </div>
+
+              {/* Phone Screenshot */}
+              <div className="relative flex-shrink-0 -ml-0 lg:-ml-20 z-10">
+                <div className="relative">
+                  <Image
+                    src="/phone.png"
+                    alt="FeatureFlow Mobile App"
+                    width={400}
+                    height={800}
+                    className="w-64 lg:w-80 h-auto"
+                  />
                 </div>
               </div>
             </div>
