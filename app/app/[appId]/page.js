@@ -2,8 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import { getAppById, getFeaturesByAppId } from "@/lib/supabase";
+import { getAppById, getFeaturesByAppId, getFeatureVotesOverTime } from "@/lib/supabase";
 import FeatureList from "@/components/FeatureList";
+import FeatureVotesChart from "@/components/FeatureVotesChart";
 
 export const dynamic = "force-dynamic";
 
@@ -17,6 +18,7 @@ export default async function AppDetails({ params }) {
 
   let app = null;
   let features = [];
+  let chartData = [];
 
   try {
     app = await getAppById(appId, cookies);
@@ -27,6 +29,7 @@ export default async function AppDetails({ params }) {
     }
 
     features = await getFeaturesByAppId(appId, cookies);
+    chartData = await getFeatureVotesOverTime(appId, cookies);
   } catch (error) {
     console.error("Error loading app:", error);
     notFound();
@@ -95,6 +98,8 @@ export default async function AppDetails({ params }) {
             </div>
           </div>
         </div>
+
+        <FeatureVotesChart data={chartData} />
 
         <FeatureList features={features} appId={appId} />
       </section>
