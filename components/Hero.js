@@ -56,7 +56,7 @@ const Hero = () => {
                 alt="FeatureFlow Dashboard and Mobile App"
                 width={1400}
                 height={788}
-                className="w-full h-auto scale-110 lg:scale-100"
+                className="w-full h-auto scale-125 lg:scale-100"
                 priority
               />
             </div>

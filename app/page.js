@@ -8,6 +8,7 @@ import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import FeaturesGrid from "@/components/FeaturesGrid";
+import FeatureShowcase from '@/components/FeatureShowcase';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <main>
         <Hero />
         <Problem />
+        <FeatureShowcase />
         <FeaturesAccordion />
         <FeaturesGrid />
         <Pricing />
