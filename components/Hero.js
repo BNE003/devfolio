@@ -13,7 +13,7 @@ const Hero = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="font-extrabold text-4xl lg:text-6xl tracking-tight max-w-4xl">
+          <h1 className="font-extrabold text-3xl lg:text-6xl tracking-tight max-w-4xl">
             Collect & Prioritize
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               {" "}Feature Requests{" "}
@@ -23,13 +23,12 @@ const Hero = () => {
 
           {/* Subheadline */}
           <p className="text-lg lg:text-xl text-base-content/70 leading-relaxed max-w-2xl">
-            Integrate FeatureFlow into your iOS app in minutes. Let users vote on features,
-            leave feedback, and see what's being built — all in one beautiful interface.
+          Capture what your users really want — from feature ideas to detailed feedback — all in one simple place.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-4">
-            <Link href="/dashboard" className="btn btn-primary btn-lg">
+          <div className="flex flex-col sm:flex-row gap-4 mt-0 lg:mt-4">
+            <Link href="/dashboard" className="btn btn-primary btn-md lg:btn-lg">
               Get Started Free
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,20 +43,20 @@ const Hero = () => {
                 />
               </svg>
             </Link>
-            <Link href="#features" className="btn btn-outline btn-lg">
+            <Link href="#features" className="btn btn-outline btn-lg hidden lg:inline-flex">
               Learn More
             </Link>
           </div>
 
           {/* Hero Screenshot */}
-          <div className="mt-16 w-full max-w-6xl relative">
+          <div className="mt-8 lg:mt-16 w-full max-w-6xl relative">
             <div className="relative">
               <Image
                 src="/hero.png"
                 alt="FeatureFlow Dashboard and Mobile App"
                 width={1400}
                 height={788}
-                className="w-full h-auto"
+                className="w-full h-auto scale-110 lg:scale-100"
                 priority
               />
             </div>
