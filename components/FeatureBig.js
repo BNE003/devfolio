@@ -25,13 +25,13 @@ const FeatureBig = () => {
 
           {/* Right Side - Screenshot */}
           <div className="relative w-full max-w-md mx-auto lg:max-w-none lg:w-auto lg:ml-0 lg:flex-1 lg:-mr-8 order-2">
-            <div className="relative z-10">
+            <div className="relative z-10 p-8" style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))' }}>
               <Image
                 src="/comments.2.png"
                 alt="Comments and User Interaction Screenshot"
                 width={2000}
                 height={1333}
-                className="w-full h-auto"
+                className="w-full h-auto rounded-lg"
                 priority
               />
             </div>

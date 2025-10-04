@@ -11,6 +11,8 @@ export default function NewApp() {
   const supabase = getSupabaseClient();
   const [appName, setAppName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [createdAppId, setCreatedAppId] = useState(null);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const generateAppId = (name) => {
     // Create a URL-friendly app ID from the name
@@ -57,7 +59,8 @@ export default function NewApp() {
       if (error) throw error;
 
       toast.success("App created successfully!");
-      router.push("/dashboard");
+      setCreatedAppId(appId);
+      setShowSuccessModal(true);
     } catch (error) {
       console.error("Error creating app:", error);
       toast.error(error.message || "Failed to create app");
@@ -67,8 +70,44 @@ export default function NewApp() {
   };
 
   return (
-    <main className="min-h-screen p-8 pb-24">
-      <section className="max-w-xl mx-auto space-y-8">
+    <>
+      {/* Success Modal */}
+      {showSuccessModal && (
+        <div className="modal modal-open">
+          <div className="modal-box">
+            <h3 className="font-bold text-lg">App Created Successfully!</h3>
+            <div className="py-4 space-y-4">
+              <p>Your app has been created with the following ID:</p>
+              <div className="alert alert-info">
+                <code className="font-mono text-sm break-all">{createdAppId}</code>
+              </div>
+              <p className="text-sm text-base-content/70">
+                Use this App ID in your iOS/macOS app to integrate VoteFlow.
+              </p>
+            </div>
+            <div className="modal-action flex-col sm:flex-row gap-2">
+              <Link
+                href="/blog/voteflow-tutorial"
+                className="btn btn-primary"
+              >
+                View Integration Guide
+              </Link>
+              <button
+                onClick={() => {
+                  setShowSuccessModal(false);
+                  router.push("/dashboard");
+                }}
+                className="btn"
+              >
+                Go to Dashboard
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <main className="min-h-screen p-8 pb-24">
+        <section className="max-w-xl mx-auto space-y-8">
         <div>
           <Link href="/dashboard" className="btn btn-ghost btn-sm mb-4">
             <svg
@@ -151,5 +190,6 @@ export default function NewApp() {
         </form>
       </section>
     </main>
+    </>
   );
 }

@@ -5,9 +5,9 @@ import config from "@/config";
 import { getSEOTags } from "@/libs/seo";
 
 export const metadata = getSEOTags({
-  title: `${config.appName} Blog | Stripe Chargeback Protection`,
+  title: `The VoteFlow Blog | Feature Voting & User Feedback`,
   description:
-    "Learn how to prevent chargebacks, how to accept payments online, and keep your Stripe account in good standing",
+    "Tutorials and guides for integrating VoteFlow into your iOS and macOS apps. Learn how to collect feature requests and prioritize what matters.",
   canonicalUrlRelative: "/blog",
 });
 
@@ -19,11 +19,10 @@ export default async function Blog() {
     <>
       <section className="text-center max-w-xl mx-auto mt-12 mb-24 md:mb-32">
         <h1 className="font-extrabold text-3xl lg:text-5xl tracking-tight mb-6">
-          The {config.appName} Blog
+          The VoteFlow Blog
         </h1>
         <p className="text-lg opacity-80 leading-relaxed">
-          Learn how to ship your startup in days, not weeks. And get the latest
-          updates about the boilerplate
+          Learn how to integrate feature voting into your iOS and macOS apps. Tutorials, guides, and best practices for building user-driven products.
         </p>
       </section>
 

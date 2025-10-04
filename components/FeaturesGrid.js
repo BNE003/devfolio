@@ -227,7 +227,7 @@ const features = [
             </div>
           </div>
         </div>
-        <div className="opacity-0 group-hover:opacity-100 duration-500 bg-neutral-content/10 rounded-box p-4 border border-neutral-content/20 translate-y-4 group-hover:translate-y-0 transition-all">
+        <div className="bg-neutral-content/10 rounded-box p-4 border border-neutral-content/20">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-neutral-content/20 flex items-center justify-center text-neutral-content font-bold">
@@ -262,7 +262,7 @@ const FeaturesGrid = () => {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className={`${feature.styles} rounded-3xl flex flex-col gap-6 w-full h-[22rem] lg:h-[25rem] pt-6 overflow-hidden group`}
+                className={`${feature.styles} rounded-3xl flex flex-col gap-6 w-full h-[22rem] lg:h-[25rem] pt-6 ${feature.overflowVisible ? 'overflow-visible' : 'overflow-hidden'} group`}
               >
                 <div className="px-6 space-y-2">
                   <h3 className="font-bold text-xl lg:text-3xl tracking-tight">

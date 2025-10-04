@@ -96,6 +96,7 @@ const socialIcons = {
 // These slugs are used to generate pages in the /blog/author/[authorId].js. It's a way to show all articles from an author.
 const authorSlugs = {
   marc: "marc",
+  benedikt: "benedikt",
 };
 
 // All the blog authors data display in the /blog/author/[authorId].js pages.
@@ -131,6 +132,21 @@ export const authors = [
       },
     ],
   },
+  {
+    slug: authorSlugs.benedikt,
+    name: "Benedikt Held",
+    job: "Founder of FeatureFlow",
+    description:
+      "Benedikt is a developer and entrepreneur passionate about building tools that empower other developers. He created FeatureFlow and VoteFlow to make feature management and user feedback seamless for iOS and macOS apps.",
+    avatar: marcImg, // TODO: Replace with benedikt's avatar
+    socials: [
+      {
+        name: socialIcons.github.name,
+        icon: socialIcons.github.svg,
+        url: "https://github.com/BNE003",
+      },
+    ],
+  },
 ];
 
 // ==================================================================================================================================================================
@@ -153,90 +169,291 @@ const styles = {
 // All the blog articles data display in the /blog/[articleId].js pages.
 export const articles = [
   {
-    // The unique slug to use in the URL. It's also used to generate the canonical URL.
-    slug: "introducing-supabase",
-    // The title to display in the article page (h1). Less than 60 characters. It's also used to generate the meta title.
-    title: "Introducing Supabase to ShipFast",
-    // The description of the article to display in the article page. Up to 160 characters. It's also used to generate the meta description.
+    slug: "voteflow-tutorial",
+    title: "VoteFlow Tutorial: Add Feature Voting to Your iOS App",
     description:
-      "Supabase is an open-source Firebase alternative. It's a great tool for building a backend for your app. It's now integrated with ShipFast!",
-    // An array of categories of the article. It's used to generate the category badges, the category filter, and more.
+      "Learn how to integrate VoteFlow into your iOS or macOS app in under 5 minutes. Give your users a voice and prioritize features that matter.",
     categories: [
-      categories.find((category) => category.slug === categorySlugs.feature),
+      categories.find((category) => category.slug === categorySlugs.tutorial),
     ],
-    // The author of the article. It's used to generate a link to the author's bio page.
-    author: authors.find((author) => author.slug === authorSlugs.marc),
-    // The date of the article. It's used to generate the meta date.
-    publishedAt: "2023-11-20",
+    author: authors.find((author) => author.slug === authorSlugs.benedikt),
+    publishedAt: "2025-10-04",
     image: {
-      // The image to display in <CardArticle /> components.
       src: introducingSupabaseImg,
-      // The relative URL of the same image to use in the Open Graph meta tags & the Schema Markup JSON-LD.
-      urlRelative: "/blog/introducing-supabase/header.jpg",
-      alt: "Supabase and ShipFast logo combined",
+      urlRelative: "/blog/voteflow-tutorial/header.png",
+      alt: "VoteFlow SDK integration tutorial",
     },
-    // The actual content of the article that will be shown under the <h1> title in the article page.
     content: (
       <>
-        <Image
-          src={introducingSupabaseImg}
-          alt="Supabase and ShipFast logo combined"
-          width={700}
-          height={500}
-          priority={true}
-          className="rounded-box"
-          placeholder="blur"
-        />
         <section>
           <h2 className={styles.h2}>Introduction</h2>
           <p className={styles.p}>
-            Supabase is an open-source Firebase alternative. It&apos;s a great
-            tool for building a backend for your app. It&apos;s now integrated
-            with ShipFast!
+            Building a successful app isn&apos;t just about shipping features—it&apos;s about shipping the <em>right</em> features.
+            VoteFlow makes it dead simple to collect, prioritize, and manage feature requests directly from your iOS or macOS app users.
+          </p>
+          <p className={styles.p}>
+            In this tutorial, you&apos;ll learn how to integrate VoteFlow into your app in under 5 minutes.
+            Your users will be able to submit feature requests, vote on existing ideas, and discuss features—all with just a few lines of code.
           </p>
         </section>
 
         <section>
-          <h3 className={styles.h3}>1. Create a supabase account</h3>
+          <h2 className={styles.h2}>What You&apos;ll Build</h2>
           <p className={styles.p}>
-            First, go to{" "}
-            <a href="https://supabase.com/" className="link link-primary">
-              Supabase
-            </a>{" "}
-            and create an account. It&apos;s free for up to 10,000 rows per
-            table.
-            <br />
-            Then create a new project and a new table. You can use the following
-            SQL schema:
+            By the end of this tutorial, your app will have:
+          </p>
+          <ul className={styles.ul}>
+            <li className={styles.li}>A complete feature request system with voting</li>
+            <li className={styles.li}>Comment threads for user discussions</li>
+            <li className={styles.li}>Automatic vote counting and ranking</li>
+            <li className={styles.li}>Status badges (Open, Planned, In Progress, Completed)</li>
+            <li className={styles.li}>Native SwiftUI interface that fits seamlessly into your app</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className={styles.h2}>Prerequisites</h2>
+          <p className={styles.p}>
+            Before we start, make sure you have:
+          </p>
+          <ul className={styles.ul}>
+            <li className={styles.li}>Xcode 14.0 or later</li>
+            <li className={styles.li}>iOS 16.0+ or macOS 13.0+ deployment target</li>
+            <li className={styles.li}>A FeatureFlow account (sign up at FeatureFlow dashboard)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className={styles.h2}>Step 1: Get Your App ID</h2>
+          <p className={styles.p}>
+            First, you need to create an app in the FeatureFlow dashboard to get your unique App ID.
+          </p>
+
+          <h3 className={styles.h3}>1.1 Sign Up & Create Your App</h3>
+          <ul className={styles.ul}>
+            <li className={styles.li}>Visit the FeatureFlow dashboard</li>
+            <li className={styles.li}>Create an account or sign in</li>
+            <li className={styles.li}>Click &ldquo;New App&rdquo; and give it a name</li>
+            <li className={styles.li}>Copy your generated App ID (e.g., <span className={styles.codeInline}>my-awesome-app-123</span>)</li>
+          </ul>
+
+          <p className={styles.p}>
+            Keep this App ID handy—you&apos;ll need it in the next step!
+          </p>
+        </section>
+
+        <section>
+          <h2 className={styles.h2}>Step 2: Install VoteFlow SDK</h2>
+
+          <h3 className={styles.h3}>2.1 Add the Package Dependency</h3>
+          <p className={styles.p}>
+            In Xcode, go to <span className={styles.codeInline}>File → Add Package Dependencies</span> and enter:
           </p>
 
           <pre className={styles.code}>
-            <code>
-              {`CREATE TABLE public.users (
-  id bigint NOT NULL DEFAULT nextval('users_id_seq'::regclass),
-  email text NOT NULL,
-  password text NOT NULL,
-  created_at timestamp with time zone NOT NULL DEFAULT now(),
-  updated_at timestamp with time zone NOT NULL DEFAULT now(),
-  CONSTRAINT users_pkey PRIMARY KEY (id)
-);`}
-            </code>
+            <code>https://github.com/BNE003/VoteFlow</code>
+          </pre>
+
+          <p className={styles.p}>
+            Select the latest version and click <strong>Add Package</strong>.
+          </p>
+
+          <h3 className={styles.h3}>2.2 Alternative: Package.swift</h3>
+          <p className={styles.p}>
+            If you&apos;re using Swift Package Manager in a Package.swift file:
+          </p>
+
+          <pre className={styles.code}>
+            <code>{`dependencies: [
+    .package(url: "https://github.com/BNE003/VoteFlow", from: "1.0.0")
+]`}</code>
           </pre>
         </section>
 
         <section>
-          <h3 className={styles.h3}>2. Add your credentials to ShipFast</h3>
+          <h2 className={styles.h2}>Step 3: Integrate VoteFlow View</h2>
+
+          <h3 className={styles.h3}>3.1 The Quick Way (Recommended)</h3>
           <p className={styles.p}>
-            Copy the <span className={styles.codeInline}>API URL</span> and{" "}
-            <span className={styles.codeInline}>API Key</span> from your
-            Supabase project settings and add them to your ShipFast project
-            settings. Add these files to your project:
+            The easiest way to integrate VoteFlow is to use the pre-built{" "}
+            <span className={styles.codeInline}>FeatureFlowView</span>.
+            It includes everything: feature list, voting, comments, and submission form.
           </p>
 
+          <pre className={styles.code}>
+            <code>{`import SwiftUI
+import VoteFlow
+
+struct ContentView: View {
+    var body: some View {
+        TabView {
+            // Your main app content
+            HomeView()
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
+
+            // VoteFlow integration - that's it!
+            FeatureFlowView(appId: "my-awesome-app-123")
+                .tabItem {
+                    Label("Feature Requests", systemImage: "lightbulb")
+                }
+        }
+    }
+}`}</code>
+          </pre>
+
+          <p className={styles.p}>
+            The key line is{" "}
+            <span className={styles.codeInline}>FeatureFlowView(appId: &quot;my-awesome-app-123&quot;)</span>
+            {" "}— replace{" "}
+            <span className={styles.codeInline}>my-awesome-app-123</span> with your actual App ID from Step 1.
+          </p>
+
+          <h3 className={styles.h3}>3.2 The Custom Way</h3>
+          <p className={styles.p}>
+            If you want more control over the UI, you can use individual components like{" "}
+            <span className={styles.codeInline}>FeatureListView</span>,{" "}
+            <span className={styles.codeInline}>SubmitFeatureView</span>, and{" "}
+            <span className={styles.codeInline}>SupabaseClient</span>:
+          </p>
+
+          <pre className={styles.code}>
+            <code>{`import SwiftUI
+import VoteFlow
+
+struct FeaturesTab: View {
+    @StateObject private var client = SupabaseClient()
+
+    var body: some View {
+        NavigationStack {
+            FeatureListView(client: client, appId: "my-awesome-app-123")
+                .navigationTitle("Feature Requests")
+                .toolbar {
+                    ToolbarItem(placement: .primaryAction) {
+                        NavigationLink {
+                            SubmitFeatureView(client: client, appId: "my-awesome-app-123")
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                    }
+                }
+        }
+    }
+}`}</code>
+          </pre>
+        </section>
+
+        <section>
+          <h2 className={styles.h2}>Step 4: Run Your App!</h2>
+          <p className={styles.p}>
+            That&apos;s it! Build and run your app. You should now see:
+          </p>
           <ul className={styles.ul}>
-            <li className={styles.li}>.env.local</li>
-            <li className={styles.li}>.env.production</li>
+            <li className={styles.li}>A list of all feature requests for your app</li>
+            <li className={styles.li}>Upvote buttons with vote counts</li>
+            <li className={styles.li}>Comment sections on each feature</li>
+            <li className={styles.li}>A form to submit new feature requests</li>
+            <li className={styles.li}>Status badges showing feature progress</li>
           </ul>
+        </section>
+
+        <section>
+          <h2 className={styles.h2}>How It Works Behind the Scenes</h2>
+
+          <h3 className={styles.h3}>User Voting System</h3>
+          <p className={styles.p}>
+            VoteFlow uses a device-specific identifier to track votes. Each user can vote once per feature.
+            The SDK automatically handles vote state persistence using UserDefaults.
+          </p>
+
+          <h3 className={styles.h3}>Real-time Updates</h3>
+          <p className={styles.p}>
+            All data is powered by Supabase, which means:
+          </p>
+          <ul className={styles.ul}>
+            <li className={styles.li}>Votes are counted automatically via database triggers</li>
+            <li className={styles.li}>Features are sorted by vote count in real-time</li>
+            <li className={styles.li}>Comments appear instantly for all users</li>
+          </ul>
+
+          <h3 className={styles.h3}>Status Workflow</h3>
+          <p className={styles.p}>
+            From the FeatureFlow dashboard, you can update feature status:
+          </p>
+          <ul className={styles.ul}>
+            <li className={styles.li}><strong>Open</strong> - New feature requests (gray badge)</li>
+            <li className={styles.li}><strong>Planned</strong> - Approved for development (blue badge)</li>
+            <li className={styles.li}><strong>In Progress</strong> - Currently being built (orange badge)</li>
+            <li className={styles.li}><strong>Completed</strong> - Shipped! (green badge)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className={styles.h2}>Managing Features from the Dashboard</h2>
+          <p className={styles.p}>
+            While your users submit and vote on features in-app, you can manage everything from the web dashboard:
+          </p>
+          <ul className={styles.ul}>
+            <li className={styles.li}>View all features sorted by vote count</li>
+            <li className={styles.li}>Change feature status (move features through your workflow)</li>
+            <li className={styles.li}>Read user comments and feedback</li>
+            <li className={styles.li}>See statistics: total features, votes, and comments</li>
+            <li className={styles.li}>Identify which features to prioritize based on user demand</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className={styles.h2}>Advanced Customization</h2>
+
+          <h3 className={styles.h3}>Custom User Identifiers</h3>
+          <p className={styles.p}>
+            By default, VoteFlow uses device IDs. If you have user authentication, you can pass custom identifiers:
+          </p>
+
+          <pre className={styles.code}>
+            <code>{`// Future feature - custom user IDs
+// Currently uses automatic device identification`}</code>
+          </pre>
+
+          <h3 className={styles.h3}>Styling & Theming</h3>
+          <p className={styles.p}>
+            VoteFlow uses native SwiftUI components, which means it automatically adapts to:
+          </p>
+          <ul className={styles.ul}>
+            <li className={styles.li}>Light and dark mode</li>
+            <li className={styles.li}>Dynamic type (accessibility)</li>
+            <li className={styles.li}>Your app&apos;s accent color</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className={styles.h2}>Next Steps</h2>
+          <p className={styles.p}>
+            Now that you&apos;ve integrated VoteFlow, here&apos;s what you can do:
+          </p>
+          <ul className={styles.ul}>
+            <li className={styles.li}>Customize the UI to match your app&apos;s design</li>
+            <li className={styles.li}>Add the feature request tab to your settings screen</li>
+            <li className={styles.li}>Set up notifications for new feature requests</li>
+            <li className={styles.li}>Ship features users actually want!</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className={styles.h2}>Conclusion</h2>
+          <p className={styles.p}>
+            VoteFlow makes user feedback management effortless. With just a few lines of code,
+            you&apos;ve given your users a direct channel to influence your product roadmap.
+            No more guessing what to build next—let your users guide you!
+          </p>
+          <p className={styles.p}>
+            Questions or feedback? Open an issue on{" "}
+            <a href="https://github.com/BNE003/VoteFlow" className="link link-primary">
+              GitHub
+            </a>{" "}
+            or reach out to the FeatureFlow team.
+          </p>
         </section>
       </>
     ),
