@@ -73,15 +73,15 @@ const FeatureShowcase = () => {
           </div>
 
           {/* Right Side - Code Snippet */}
-          <div className="relative flex-1 lg:-mr-8">
-            <div className="relative bg-slate-900/90 backdrop-blur-sm rounded-xl p-6 text-left shadow-2xl border border-white/10">
-              <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/10">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                <span className="ml-2 text-white/60 text-sm">ContentView.swift</span>
+          <div className="relative w-full lg:w-auto lg:ml-0 flex-1 lg:-mr-8">
+            <div className="relative bg-slate-900/90 backdrop-blur-sm rounded-xl p-4 lg:p-6 text-left shadow-2xl border border-white/10">
+              <div className="flex items-center gap-2 mb-3 lg:mb-4 pb-2 lg:pb-3 border-b border-white/10">
+                <div className="w-2.5 h-2.5 lg:w-3 lg:h-3 rounded-full bg-red-500"></div>
+                <div className="w-2.5 h-2.5 lg:w-3 lg:h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-2.5 h-2.5 lg:w-3 lg:h-3 rounded-full bg-green-500"></div>
+                <span className="ml-2 text-white/60 text-xs lg:text-sm">ContentView.swift</span>
               </div>
-              <pre className="text-sm lg:text-base overflow-x-auto">
+              <pre className="text-xs lg:text-base overflow-x-auto">
                 <code className="text-emerald-300">
 {`import SwiftUI
 import FeatureFlow
