@@ -49,47 +49,17 @@ const Hero = () => {
             </Link>
           </div>
 
-          {/* Screenshots with Code Snippet Overlay */}
+          {/* Hero Screenshot */}
           <div className="mt-16 w-full max-w-6xl relative">
-            <div className="flex flex-col lg:flex-row gap-8 items-center justify-center">
-              {/* Dashboard Screenshot */}
-              <div className="relative flex-1 max-w-3xl">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl"></div>
-                <div className="relative rounded-2xl shadow-2xl border border-base-content/10 overflow-hidden">
-                  <Image
-                    src="/dashboard.png"
-                    alt="FeatureFlow Dashboard"
-                    width={1200}
-                    height={675}
-                    className="w-full h-auto"
-                    priority
-                  />
-                </div>
-              </div>
-
-              {/* Phone Screenshot */}
-              <div className="relative flex-shrink-0 -ml-0 lg:-ml-20 z-10">
-                <div className="relative">
-                  <Image
-                    src="/phone.png"
-                    alt="FeatureFlow Mobile App"
-                    width={400}
-                    height={800}
-                    className="w-64 lg:w-80 h-auto"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Code Snippet Overlay */}
-            <div className="absolute -top-8 left-4 lg:left-8 z-10">
-              <div className="mockup-code bg-neutral text-neutral-content shadow-2xl text-left text-xs lg:text-sm">
-                <pre data-prefix="1"><code>import FeatureFlow</code></pre>
-                <pre data-prefix="2"><code></code></pre>
-                <pre data-prefix="3"><code className="text-success">// Present the feature list with just one line of code.</code></pre>
-                <pre data-prefix="4"><code>FeatureFlowView(appId: "your_app_id")</code></pre>
-                <pre data-prefix="5"><code className="text-warning">// Let the magic happen ✨</code></pre>
-              </div>
+            <div className="relative">
+              <Image
+                src="/hero.png"
+                alt="FeatureFlow Dashboard and Mobile App"
+                width={1400}
+                height={788}
+                className="w-full h-auto"
+                priority
+              />
             </div>
           </div>
         </div>
