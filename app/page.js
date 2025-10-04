@@ -9,6 +9,7 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import FeaturesGrid from "@/components/FeaturesGrid";
 import FeatureShowcase from '@/components/FeatureShowcase';
+import FeatureBig from '@/components/FeatureBig';
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Hero />
         <Problem />
         <FeatureShowcase />
+        <FeatureBig />
         <FeaturesAccordion />
         <FeaturesGrid />
         <Pricing />
