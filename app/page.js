@@ -22,7 +22,7 @@ export default function Home() {
         <Problem />
         <FeatureShowcase />
         <FeatureBig />
-        <FeaturesAccordion />
+
         <FeaturesGrid />
         <Pricing />
         <FAQ />
