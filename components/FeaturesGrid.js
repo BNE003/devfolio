@@ -1,38 +1,60 @@
+"use client";
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 
 const features = [
   {
-    title: "Collect feature requests",
+    title: "No backend needed",
     description:
-      "Let your iOS and macOS users submit feature requests directly from your app.",
-    styles: "bg-primary text-primary-content",
+      "SDK connects directly to our database. Zero server setup, zero maintenance. Just plug and play.",
+    styles: "bg-neutral text-neutral-content",
     demo: (
-      <div className="overflow-hidden h-full flex items-stretch">
-        <div className="w-full translate-x-12 bg-base-200 rounded-t-box h-full p-6">
-          <p className="font-medium uppercase tracking-wide text-base-content/60 text-sm mb-3">
-            Request a feature
-          </p>
-          <div
-            className="relative textarea py-4 h-full mr-12 bg-base-200 group-hover:bg-base-100 group-hover:border-base-content/10 text-base-content"
-            placeholder="Dark mode for the entire app"
-          >
-            <div className="absolute left-4 top-4 group-hover:hidden flex items-center ">
-              <span>Dark M</span>
-              <span className="w-[2px] h-6 bg-primary animate-pulse"></span>
+      <div className="overflow-hidden h-full flex items-center justify-center px-6">
+        <div className="flex items-center gap-8 w-full max-w-md">
+          {/* iOS App Icon */}
+          <div className="flex flex-col items-center gap-3 opacity-100 group-hover:scale-110 transition-all duration-300">
+            <div className="w-16 h-16 bg-neutral-content/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-neutral-content/30">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                <path d="M12 18h.01"/>
+              </svg>
             </div>
-            <div className="opacity-0 group-hover:opacity-100 duration-500">
-              Dark mode support for the entire app
+            <p className="text-sm font-medium opacity-90">Your App</p>
+          </div>
+
+          {/* Arrow with animation */}
+          <div className="flex-1 flex flex-col items-center gap-2">
+            <div className="w-full h-[2px] bg-neutral-content/30 relative overflow-hidden">
+              <div className="absolute inset-0 bg-neutral-content/80 animate-[slideRight_1.5s_ease-in-out_infinite]"></div>
             </div>
-            <div className="opacity-0 group-hover:opacity-100 duration-1000 flex items-center gap-0.5">
-              <span>Would be great for night-time users</span>
-              <span className="w-[2px] h-6 bg-primary animate-pulse"></span>
+            <p className="text-xs opacity-70 whitespace-nowrap">SDK Request</p>
+          </div>
+
+          {/* Database Icon */}
+          <div className="flex flex-col items-center gap-3 opacity-100 group-hover:scale-110 transition-all duration-300">
+            <div className="w-16 h-16 bg-neutral-content/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-neutral-content/30 relative">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/>
+              </svg>
+              {/* Pulse animation */}
+              <div className="absolute inset-0 rounded-2xl bg-neutral-content/20 animate-ping opacity-0 group-hover:opacity-100"></div>
             </div>
-            <button className="btn shadow-lg btn-primary absolute right-4 bottom-6 opacity-0 group-hover:opacity-100 duration-1000">
-              Submit
-            </button>
+            <p className="text-sm font-medium opacity-90">Our DB</p>
           </div>
         </div>
+
+        <style jsx>{`
+          @keyframes slideRight {
+            0% {
+              transform: translateX(-100%);
+            }
+            100% {
+              transform: translateX(100%);
+            }
+          }
+        `}</style>
       </div>
     ),
   },
@@ -166,56 +188,61 @@ const features = [
     ),
   },
   {
-    title: "Engage your community",
-    description: "Users can discuss features and share ideas through comments.",
+    title: "Manage from web dashboard",
+    description: "Track all apps in one place. Update status, analyze feedback, and prioritize your roadmap.",
     styles: "bg-neutral text-neutral-content",
     demo: (
-      <div className="text-neutral-content px-6 space-y-4">
-        {[
-          {
-            id: 1,
-            text: "Would love to see dark mode in the next update!",
-            userImg:
-              "https://pbs.twimg.com/profile_images/1514863683574599681/9k7PqDTA_400x400.jpg",
-            userName: "Sarah M.",
-            createdAt: "2024-09-15T00:00:00Z",
-          },
-          {
-            id: 2,
-            text: "This would be perfect for using the app at night",
-            userImg:
-              "https://pbs.twimg.com/profile_images/1778434561556320256/knBJT1OR_400x400.jpg",
-            userName: "Alex K.",
-            createdAt: "2024-09-16T00:00:00Z",
-            transition:
-              "opacity-0 group-hover:opacity-100 duration-500 translate-x-1/4 group-hover:translate-x-0",
-          },
-        ]?.map((reply) => (
-          <div
-            key={reply.id}
-            className={`px-6 py-4 bg-neutral-content text-neutral rounded-box ${reply?.transition}`}
-          >
-            <div className="mb-2 whitespace-pre-wrap">{reply.text}</div>
-            <div className="text-neutral/80 flex items-center gap-2 text-sm">
-              <div className="flex items-center gap-2">
-                <div className="avatar">
-                  <div className="w-7 rounded-full">
-                    <img src={reply.userImg} alt={reply.userName} />
-                  </div>
-                </div>
-                <div className=""> {reply.userName} </div>
+      <div className="text-neutral-content px-6 py-4 space-y-3">
+        <div className="bg-neutral-content/10 rounded-box p-4 border border-neutral-content/20">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-primary-content font-bold">
+                M
               </div>
-              •
               <div>
-                {new Date(reply.createdAt).toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                })}
+                <p className="font-semibold">MyApp iOS</p>
+                <p className="text-sm opacity-70">3 apps • 247 requests</p>
               </div>
             </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-50">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
           </div>
-        ))}
+          <div className="grid grid-cols-4 gap-2 text-center text-sm">
+            <div>
+              <p className="text-2xl font-bold">23</p>
+              <p className="opacity-60">Open</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-blue-400">12</p>
+              <p className="opacity-60">Planned</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-orange-400">8</p>
+              <p className="opacity-60">Progress</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-green-400">31</p>
+              <p className="opacity-60">Done</p>
+            </div>
+          </div>
+        </div>
+        <div className="opacity-0 group-hover:opacity-100 duration-500 bg-neutral-content/10 rounded-box p-4 border border-neutral-content/20 translate-y-4 group-hover:translate-y-0 transition-all">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-neutral-content/20 flex items-center justify-center text-neutral-content font-bold">
+                N
+              </div>
+              <div>
+                <p className="font-semibold">Notes macOS</p>
+                <p className="text-sm opacity-70">89 requests</p>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-50">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </div>
+        </div>
       </div>
     ),
   },
