@@ -6,9 +6,9 @@ const FeatureShowcase = () => {
     <section className="relative overflow-hidden bg-gradient-to-br from-emerald-400 via-green-400 to-teal-400 py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-8">
         {/* First Section - Text and Screenshot */}
-        <div className="flex flex-col lg:flex-row gap-12 items-center mb-8">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center mb-8">
           {/* Left Side - Text Content */}
-          <div className="space-y-6 lg:w-2/5 flex-shrink-0">
+          <div className="space-y-6 lg:w-2/5 flex-shrink-0 order-1">
             <h2 className="font-black text-4xl lg:text-6xl tracking-tight text-white">
               Capture User Feedback
             </h2>
@@ -19,7 +19,7 @@ const FeatureShowcase = () => {
           </div>
 
           {/* Right Side - Screenshot */}
-          <div className="relative flex-1 -mr-8 lg:-mr-16">
+          <div className="relative w-[140%] -ml-[10%] lg:w-auto lg:ml-0 lg:flex-1 lg:-mr-8 order-2">
             <div className="relative z-10">
               <Image
                 src="/feature1.png?v=2"
@@ -34,9 +34,19 @@ const FeatureShowcase = () => {
         </div>
 
         {/* Second Section - Video and Dashboard Text */}
-        <div className="flex flex-col lg:flex-row items-center justify-between">
-          {/* Left Side - Video */}
-          <div className="relative z-10 lg:w-2/5 flex-shrink-0">
+        <div className="flex flex-col lg:flex-row items-center lg:justify-between gap-8 mb-16 lg:mb-24">
+          {/* Dashboard Text - Mobile first */}
+          <div className="relative space-y-6 lg:w-3/5 lg:pl-24 lg:-mr-8 order-1 lg:order-2">
+            <h2 className="font-black text-4xl lg:text-6xl tracking-tight text-white">
+              Manage & Prioritize
+            </h2>
+            <p className="text-lg lg:text-xl text-white/90 leading-relaxed max-w-xl">
+              Track feature requests in your dashboard. Label features, update their status, and prioritize based on user votes.
+            </p>
+          </div>
+
+          {/* Video */}
+          <div className="relative z-10 w-full lg:w-2/5 lg:ml-0 flex-shrink-0 order-2 lg:order-1">
             <video
               className="w-full h-auto rounded-lg border-4 border-white shadow-xl"
               autoPlay
@@ -48,15 +58,42 @@ const FeatureShowcase = () => {
               Your browser does not support the video tag.
             </video>
           </div>
+        </div>
 
-          {/* Right Side - Dashboard Text */}
-          <div className="relative space-y-6 lg:w-3/5 lg:pl-24 lg:-mr-8">
+        {/* Third Section - Setup Code Snippet */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+          {/* Left Side - Text Content */}
+          <div className="space-y-6 lg:w-2/5 flex-shrink-0">
             <h2 className="font-black text-4xl lg:text-6xl tracking-tight text-white">
-              Manage & Prioritize
+              Set Up in 2 Minutes
             </h2>
             <p className="text-lg lg:text-xl text-white/90 leading-relaxed max-w-xl">
-              Track feature requests in your dashboard. Label features, update their status, and prioritize based on user votes.
+              Add FeatureFlow to your iOS app with just a few lines of code
             </p>
+          </div>
+
+          {/* Right Side - Code Snippet */}
+          <div className="relative flex-1 lg:-mr-8">
+            <div className="relative bg-slate-900/90 backdrop-blur-sm rounded-xl p-6 text-left shadow-2xl border border-white/10">
+              <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/10">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                <span className="ml-2 text-white/60 text-sm">ContentView.swift</span>
+              </div>
+              <pre className="text-sm lg:text-base overflow-x-auto">
+                <code className="text-emerald-300">
+{`import SwiftUI
+import FeatureFlow
+
+struct ContentView: View {
+    var body: some View {
+        FeatureFlowView(appId: "your-app-id")
+    }
+}`}
+                </code>
+              </pre>
+            </div>
           </div>
         </div>
       </div>
