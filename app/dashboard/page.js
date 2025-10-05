@@ -1,4 +1,5 @@
 import ButtonAccount from "@/components/ButtonAccount";
+import DeleteAppButton from "@/components/DeleteAppButton";
 import Link from "next/link";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
@@ -97,59 +98,66 @@ export default async function Dashboard() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {appsWithStats.map((app) => (
-              <Link
-                key={app.id}
-                href={`/app/${app.app_id}`}
-                className="card bg-base-200 hover:bg-base-300 transition-colors cursor-pointer"
-              >
+              <div key={app.id} className="card bg-base-200 transition-colors">
                 <div className="card-body">
-                  <h2 className="card-title">{app.app_name}</h2>
-                  <p className="text-sm text-base-content/60 font-mono">
-                    {app.app_id}
-                  </p>
+                  <div className="flex items-start justify-between">
+                    <Link href={`/app/${app.app_id}`} className="flex-1 cursor-pointer hover:opacity-80">
+                      <h2 className="card-title">{app.app_name}</h2>
+                      <p className="text-sm text-base-content/60 font-mono">
+                        {app.app_id}
+                      </p>
+                    </Link>
+                    <DeleteAppButton
+                      appId={app.app_id}
+                      appName={app.app_name}
+                      featuresCount={app.stats?.total_features}
+                    />
+                  </div>
 
                   <div className="divider my-2"></div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-2xl font-bold">
-                        {app.stats?.total_features || 0}
-                      </p>
-                      <p className="text-xs text-base-content/60">Features</p>
+                  <Link href={`/app/${app.app_id}`} className="cursor-pointer">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <p className="text-2xl font-bold">
+                          {app.stats?.total_features || 0}
+                        </p>
+                        <p className="text-xs text-base-content/60">Features</p>
+                      </div>
+                      <div>
+                        <p className="text-2xl font-bold">
+                          {app.stats?.total_votes || 0}
+                        </p>
+                        <p className="text-xs text-base-content/60">Votes</p>
+                      </div>
+                      <div>
+                        <p className="text-2xl font-bold">
+                          {app.stats?.total_comments || 0}
+                        </p>
+                        <p className="text-xs text-base-content/60">Comments</p>
+                      </div>
+                      <div>
+                        <p className="text-2xl font-bold">
+                          {app.stats?.in_progress || 0}
+                        </p>
+                        <p className="text-xs text-base-content/60">In Progress</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-2xl font-bold">
-                        {app.stats?.total_votes || 0}
-                      </p>
-                      <p className="text-xs text-base-content/60">Votes</p>
-                    </div>
-                    <div>
-                      <p className="text-2xl font-bold">
-                        {app.stats?.total_comments || 0}
-                      </p>
-                      <p className="text-xs text-base-content/60">Comments</p>
-                    </div>
-                    <div>
-                      <p className="text-2xl font-bold">
-                        {app.stats?.in_progress || 0}
-                      </p>
-                      <p className="text-xs text-base-content/60">In Progress</p>
-                    </div>
-                  </div>
 
-                  <div className="flex gap-2 mt-4">
-                    <div className="badge badge-ghost badge-sm">
-                      {app.stats?.open || 0} open
+                    <div className="flex gap-2 mt-4">
+                      <div className="badge badge-ghost badge-sm">
+                        {app.stats?.open || 0} open
+                      </div>
+                      <div className="badge badge-info badge-sm">
+                        {app.stats?.planned || 0} planned
+                      </div>
+                      <div className="badge badge-success badge-sm">
+                        {app.stats?.completed || 0} done
+                      </div>
                     </div>
-                    <div className="badge badge-info badge-sm">
-                      {app.stats?.planned || 0} planned
-                    </div>
-                    <div className="badge badge-success badge-sm">
-                      {app.stats?.completed || 0} done
-                    </div>
-                  </div>
+                  </Link>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         )}

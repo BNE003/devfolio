@@ -6,7 +6,7 @@ const FeatureShowcase = () => {
     <section className="relative overflow-hidden bg-gradient-to-br from-emerald-400 via-green-400 to-teal-400 py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-8">
         {/* First Section - Text and Screenshot */}
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center mb-8">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-12 items-center mb-8">
           {/* Left Side - Text Content */}
           <div className="space-y-6 lg:w-2/5 flex-shrink-0 order-1">
             <h2 className="font-black text-4xl lg:text-6xl tracking-tight text-white">
@@ -19,7 +19,7 @@ const FeatureShowcase = () => {
           </div>
 
           {/* Right Side - Screenshot */}
-          <div className="relative w-[140%] -ml-[10%] lg:w-auto lg:ml-0 lg:flex-1 lg:-mr-8 order-2">
+          <div className="relative w-[150%] ml-[2%] lg:w-auto lg:ml-0 lg:flex-1 lg:-mr-8 order-2">
             <div className="relative z-10">
               <Image
                 src="/feature1.png?v=2"
