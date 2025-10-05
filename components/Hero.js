@@ -8,8 +8,8 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-8 py-12 lg:py-20">
         <div className="flex flex-col items-center text-center gap-8 lg:gap-12">
           {/* Badge */}
-          <div className="badge badge-lg badge-primary badge-outline">
-            🚀 Feature Request Management for iOS Apps
+          <div className="badge badge-md lg:badge-lg badge-primary badge-outline px-3 lg:px-4">
+            <span className="text-xs lg:text-base">🚀 Feature Request Management for iOS Apps</span>
           </div>
 
           {/* Headline */}
