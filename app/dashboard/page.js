@@ -13,6 +13,15 @@ export default async function Dashboard() {
     data: { user },
   } = await supabase.auth.getUser();
 
+  // Check if user has access
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("has_access")
+    .eq("id", user.id)
+    .single();
+
+  const hasAccess = profile?.has_access || false;
+
   let apps = [];
   let appsWithStats = [];
 
@@ -59,20 +68,37 @@ export default async function Dashboard() {
         </div>
 
         <div className="flex gap-3 flex-wrap">
-          <Link
-            href="/app/new"
-            className="btn btn-primary"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-5 h-5"
+          {hasAccess ? (
+            <Link
+              href="/app/new"
+              className="btn btn-primary"
             >
-              <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
-            </svg>
-            New App
-          </Link>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="w-5 h-5"
+              >
+                <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+              </svg>
+              New App
+            </Link>
+          ) : (
+            <Link
+              href="/#pricing"
+              className="btn btn-primary"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="w-5 h-5"
+              >
+                <path fillRule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clipRule="evenodd" />
+              </svg>
+              Upgrade to Create Apps
+            </Link>
+          )}
           <Link
             href="/blog/voteflow-tutorial"
             className="btn btn-outline"

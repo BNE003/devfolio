@@ -42,6 +42,19 @@ export default function NewApp() {
         return;
       }
 
+      // Check if user has access (paid user)
+      const { data: profile, error: profileError } = await supabase
+        .from("profiles")
+        .select("has_access")
+        .eq("id", user.id)
+        .single();
+
+      if (profileError || !profile?.has_access) {
+        toast.error("You need an active subscription to create apps");
+        router.push("/#pricing");
+        return;
+      }
+
       const appId = generateAppId(appName);
 
       const { data, error } = await supabase
