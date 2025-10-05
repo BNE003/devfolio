@@ -19,10 +19,7 @@ const config = {
     plans: [
       {
         // REQUIRED — we use this to find the plan in the webhook (for instance if you want to update the user's credits based on the plan)
-        priceId:
-          process.env.NODE_ENV === "development"
-            ? "price_1SEZCG3PBdaoioWhFz0oIu80"
-            : "price_1SEZvHQNMsCITO0SOJ1sT07B",
+        priceId: "price_1SEZvHQNMsCITO0SOJ1sT07B",
         //  REQUIRED - Name of the plan, displayed on the pricing page
         name: "Starter",
         // A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
@@ -30,36 +27,14 @@ const config = {
         // The price you want to display, the one user will be charged on Stripe.
         price: 19.99,
         // If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
-        priceAnchor: 99,
+        priceAnchor: 39.99,
         features: [
           {
-            name: "NextJS boilerplate",
+            name: "VoteFlow",
           },
           { name: "User oauth" },
           { name: "Database" },
           { name: "Emails" },
-        ],
-      },
-      {
-        // This plan will look different on the pricing page, it will be highlighted. You can only have one plan with isFeatured: true
-        isFeatured: true,
-        priceId:
-          process.env.NODE_ENV === "development"
-            ? "price_1O5KtcAxyNprDp7iftKnrrpw"
-            : "",
-        name: "Advanced",
-        description: "You need more power",
-        price: 99,
-        priceAnchor: 149,
-        features: [
-          {
-            name: "NextJS boilerplate",
-          },
-          { name: "User oauth" },
-          { name: "Database" },
-          { name: "Emails" },
-          { name: "1 year of updates" },
-          { name: "24/7 support" },
         ],
       },
     ],
