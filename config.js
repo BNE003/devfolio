@@ -2,7 +2,7 @@ import themes from "daisyui/src/theming/themes.js";
 
 const config = {
   // REQUIRED
-  appName: "ShipFast",
+  appName: "VoteFLow",
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
   appDescription:
     "The NextJS boilerplate with all you need to build your SaaS, AI tool, or any other web app.",
@@ -20,9 +20,9 @@ const config = {
       {
         // REQUIRED — we use this to find the plan in the webhook (for instance if you want to update the user's credits based on the plan)
         priceId:
-          process.env.NODE_ENV === "production"
-            ? "price_1SEZvHQNMsCITO0SOJ1sT07Bh"
-            : "prod_TAv2ZJMtnn0F3g",
+          process.env.NODE_ENV === "development"
+            ? "price_1SEZCG3PBdaoioWhFz0oIu80"
+            : "price_456",
         //  REQUIRED - Name of the plan, displayed on the pricing page
         name: "Starter",
         // A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
@@ -33,7 +33,7 @@ const config = {
         priceAnchor: 99,
         features: [
           {
-            name: "VoteFlow",
+            name: "NextJS boilerplate",
           },
           { name: "User oauth" },
           { name: "Database" },
@@ -46,7 +46,7 @@ const config = {
         priceId:
           process.env.NODE_ENV === "development"
             ? "price_1O5KtcAxyNprDp7iftKnrrpw"
-            : "price_456",
+            : "",
         name: "Advanced",
         description: "You need more power",
         price: 99,
