@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import PlausibleProvider from "next-plausible";
+import Script from "next/script";
 import { getSEOTags } from "@/libs/seo";
 import ClientLayout from "@/components/LayoutClient";
 import config from "@/config";
@@ -29,6 +30,13 @@ export default function RootLayout({ children }) {
       <body>
         {/* ClientLayout contains all the client wrappers (Crisp chat support, toast messages, tooltips, etc.) */}
         <ClientLayout>{children}</ClientLayout>
+
+        <Script
+          src="https://datafa.st/js/script.js"
+          data-website-id="dfid_gRcEwQUw2RBgBveo0cPdT"
+          data-domain="voteflow.dev"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
