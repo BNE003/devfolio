@@ -71,6 +71,12 @@ export default function NewApp() {
 
       if (error) throw error;
 
+      // Track app creation
+      window?.datafast("app_created", {
+        app_name: appName.trim(),
+        app_id: appId,
+      });
+
       toast.success("App created successfully!");
       setCreatedAppId(appId);
       setShowSuccessModal(true);
@@ -102,6 +108,8 @@ export default function NewApp() {
               <Link
                 href="/blog/voteflow-tutorial"
                 className="btn btn-primary"
+                data-fast-goal="integration_guide_viewed"
+                data-fast-goal-app-id={createdAppId}
               >
                 View Integration Guide
               </Link>
@@ -111,6 +119,7 @@ export default function NewApp() {
                   router.push("/dashboard");
                 }}
                 className="btn"
+                data-fast-goal="dashboard_return"
               >
                 Go to Dashboard
               </button>

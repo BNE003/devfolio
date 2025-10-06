@@ -14,6 +14,12 @@ const ButtonCheckout = ({ priceId, mode = "payment" }) => {
   const handlePayment = async () => {
     setIsLoading(true);
 
+    // Track checkout initiation
+    window?.datafast("checkout_initiated", {
+      price_id: priceId,
+      mode: mode,
+    });
+
     try {
       const res = await apiClient.post("/stripe/create-checkout", {
         priceId,

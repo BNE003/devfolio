@@ -25,6 +25,17 @@ export default function RootLayout({ children }) {
       {config.domainName && (
         <head>
           <PlausibleProvider domain={config.domainName} />
+          <script
+            id="datafast-queue"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.datafast = window.datafast || function() {
+                  window.datafast.q = window.datafast.q || [];
+                  window.datafast.q.push(arguments);
+                };
+              `
+            }}
+          />
         </head>
       )}
       <body>

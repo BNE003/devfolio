@@ -28,7 +28,12 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mt-0 lg:mt-4">
-            <Link href="/dashboard" className="btn btn-primary btn-md lg:btn-lg">
+            <Link
+              href="/dashboard"
+              className="btn btn-primary btn-md lg:btn-lg"
+              data-fast-goal="get_started_clicked"
+              data-fast-goal-source="hero"
+            >
               Get Started Free
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +48,11 @@ const Hero = () => {
                 />
               </svg>
             </Link>
-            <Link href="#features" className="btn btn-outline btn-lg hidden lg:inline-flex">
+            <Link
+              href="#features"
+              className="btn btn-outline btn-lg hidden lg:inline-flex"
+              data-fast-goal="learn_more_clicked"
+            >
               Learn More
             </Link>
           </div>

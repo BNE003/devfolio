@@ -78,6 +78,11 @@ export async function POST(req) {
       },
       // If you send coupons from the frontend, you can pass it here
       // couponId: body.couponId,
+      // DataFast analytics cookies for revenue attribution
+      metadata: {
+        datafast_visitor_id: cookieStore.get('datafast_visitor_id')?.value,
+        datafast_session_id: cookieStore.get('datafast_session_id')?.value
+      },
     });
 
     return NextResponse.json({ url: stripeSessionURL });
