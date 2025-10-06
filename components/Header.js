@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import ButtonSignin from "./ButtonSignin";
-import logo from "@/app/icon.png";
+import logo from "@/public/logoVoteFlow.png";
 import config from "@/config";
 
 const links = [
@@ -52,11 +52,11 @@ const Header = () => {
             <Image
               src={logo}
               alt={`${config.appName} logo`}
-              className="w-8"
+              className="w-12"
               placeholder="blur"
               priority={true}
-              width={32}
-              height={32}
+              width={48}
+              height={48}
             />
             <span className="font-extrabold text-lg">{config.appName}</span>
           </Link>
@@ -119,11 +119,11 @@ const Header = () => {
               <Image
                 src={logo}
                 alt={`${config.appName} logo`}
-                className="w-8"
+                className="w-12"
                 placeholder="blur"
                 priority={true}
-                width={32}
-                height={32}
+                width={48}
+                height={48}
               />
               <span className="font-extrabold text-lg">{config.appName}</span>
             </Link>

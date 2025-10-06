@@ -7,22 +7,51 @@ import { useRef, useState } from "react";
 
 const faqList = [
   {
-    question: "What do I get exactly?",
-    answer: <div className="space-y-2 leading-relaxed">Loreum Ipseum</div>,
+    question: "How do I integrate VoteFlow into my app?",
+    answer: (
+      <div className="space-y-2 leading-relaxed">
+        <p>Integration is simple! After creating your app in the dashboard, you'll receive an App ID. Then add the VoteFlow SDK to your iOS/macOS project and embed the VoteFlowView with your App ID. That's it!</p>
+      </div>
+    ),
+  },
+  {
+    question: "How does the voting system work?",
+    answer: (
+      <p>
+        Each user can vote once per feature request, based on their device ID. This ensures fair voting while maintaining user privacy. Votes are automatically counted and features are sorted by popularity.
+      </p>
+    ),
+  },
+  {
+    question: "Can I customize the status of feature requests?",
+    answer: (
+      <div className="space-y-2 leading-relaxed">
+        <p>Yes! You can manage feature statuses from your dashboard. Move features between "Open", "Planned", "In Progress", and "Completed" to keep your users informed about development progress.</p>
+      </div>
+    ),
+  },
+  {
+    question: "Is there a limit on the number of features or votes?",
+    answer: (
+      <p>
+        No limits! Your users can submit unlimited feature requests and vote on as many features as they want. You can manage and prioritize all feedback from your dashboard.
+      </p>
+    ),
   },
   {
     question: "Can I get a refund?",
     answer: (
       <p>
-        Yes! You can request a refund within 7 days of your purchase. Reach out
-        by email.
+        Yes! You can request a refund within 7 days of your purchase. Reach out by email and we'll process it quickly.
       </p>
     ),
   },
   {
-    question: "I have another question",
+    question: "Do you offer support?",
     answer: (
-      <div className="space-y-2 leading-relaxed">Cool, contact us by email</div>
+      <div className="space-y-2 leading-relaxed">
+        <p>Absolutely! We're here to help you get the most out of VoteFlow. Contact us anytime via email for technical support or questions.</p>
+      </div>
     ),
   },
 ];

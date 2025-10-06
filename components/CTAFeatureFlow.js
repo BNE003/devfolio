@@ -1,76 +1,83 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { SparklesText } from "@/components/ui/sparkles-text";
+import { ArrowRight, Check } from "lucide-react";
 
 const CTAFeatureFlow = () => {
   return (
-    <section className="bg-gradient-to-br from-primary to-secondary py-24">
-      <div className="max-w-4xl mx-auto px-8 text-center">
-        <h2 className="text-4xl lg:text-5xl font-extrabold text-primary-content mb-6">
-          Ready to Build What Users Want?
-        </h2>
-        <p className="text-xl text-primary-content/90 mb-8 max-w-2xl mx-auto">
-          Join developers who are building better products by listening to their
-          users. Start collecting feature requests today.
-        </p>
+    <section className="relative py-32 overflow-hidden">
+      {/* Animated Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-cyan-600/20 to-blue-700/20 animate-gradient-xy" />
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <div className="relative max-w-5xl mx-auto px-8 text-center">
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <SparklesText
+            className="text-4xl lg:text-5xl font-extrabold mb-6"
+            sparklesCount={6}
+            colors={{ first: "#0ea5e9", second: "#06b6d4" }}
+          >
+            Ready to Build What Users Want?
+          </SparklesText>
+        </motion.div>
+
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-xl text-base-content/70 mb-10 max-w-2xl mx-auto"
+        >
+          Stop guessing what to build next. Let your users tell you. Start
+          collecting, prioritizing, and shipping features that matter.
+        </motion.p>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mb-12"
+        >
           <Link
             href="/dashboard"
-            className="btn btn-lg bg-base-100 text-base-content hover:bg-base-200 border-none"
+            className="group btn btn-lg btn-primary gap-2 shadow-lg hover:shadow-xl transition-all duration-300"
           >
-            Get Started Free
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-                clipRule="evenodd"
-              />
-            </svg>
+            <span>Get Started Free</span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
-          <Link
-            href="/signin"
-            className="btn btn-lg btn-outline text-primary-content border-primary-content hover:bg-primary-content hover:text-primary"
-          >
-            View Demo
-          </Link>
-        </div>
+        </motion.div>
 
-        <div className="mt-8 flex items-center justify-center gap-6 text-primary-content/80">
+        {/* Features */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex flex-wrap items-center justify-center gap-6 text-base-content/60"
+        >
           <div className="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span>No credit card required</span>
+            <div className="w-5 h-5 rounded-full bg-success/20 flex items-center justify-center">
+              <Check className="w-3 h-3 text-success" />
+            </div>
+            <span className="text-sm">No credit card required</span>
           </div>
           <div className="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span>5 min setup</span>
+            <div className="w-5 h-5 rounded-full bg-success/20 flex items-center justify-center">
+              <Check className="w-3 h-3 text-success" />
+            </div>
+            <span className="text-sm">5 minute setup</span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

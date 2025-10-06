@@ -57,39 +57,51 @@ const TOS = () => {
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Last Updated: September 26, 2023
+          {`Last Updated: January 10, 2025
 
-Welcome to ShipFast!
+Welcome to VoteFlow!
 
-These Terms of Service ("Terms") govern your use of the ShipFast website at https://shipfa.st ("Website") and the services provided by ShipFast. By using our Website and services, you agree to these Terms.
+These Terms of Service ("Terms") govern your use of the VoteFlow service and the services provided by VoteFlow. By using our service, you agree to these Terms.
 
-1. Description of ShipFast
+1. Description of VoteFlow
 
-ShipFast is a platform that offers a JavaScript code boilerplate to assist entrepreneurs in launching their startups more efficiently.
+VoteFlow is a feature request and feedback management system for iOS/macOS applications. It enables app users to submit feature requests, vote on them, and engage in discussions, while providing developers with tools to track, manage, and prioritize user feedback.
 
 2. Ownership and Usage Rights
 
-When you purchase a package from ShipFast, you gain the right to download and use the code provided for creating applications. You own the code you create but do not have the right to resell it. We offer a full refund within 7 days of purchase, as specified in our refund policy.
+When you purchase VoteFlow, you gain the right to integrate our SDK into your applications and use our dashboard to manage feature requests. You may use VoteFlow for an unlimited number of applications. We offer a full refund within 7 days of purchase, as specified in our refund policy.
 
 3. User Data and Privacy
 
-We collect and store user data, including name, email, and payment information, as necessary to provide our services. For details on how we handle your data, please refer to our Privacy Policy at https://shipfa.st/privacy-policy.
+We collect and store user data, including name, email, and payment information, as necessary to provide our services. Additionally, VoteFlow collects feature requests, votes, and comments submitted by your app users. For details on how we handle your data, please refer to our Privacy Policy.
 
 4. Non-Personal Data Collection
 
 We use web cookies to collect non-personal data for the purpose of improving our services and user experience.
 
-5. Governing Law
+5. Service Availability
 
-These Terms are governed by the laws of France.
+We strive to maintain service availability but cannot guarantee uninterrupted access. VoteFlow is provided "as is" without warranties of any kind.
 
-6. Updates to the Terms
+6. Governing Law
+
+These Terms are governed by the laws of Germany.
+
+7. Updates to the Terms
 
 We may update these Terms from time to time. Users will be notified of any changes via email.
 
-For any questions or concerns regarding these Terms of Service, please contact us at marc@shipfa.st.
+For any questions or concerns regarding these Terms of Service, please contact us at bene-held@web.de.
 
-Thank you for using ShipFast!`}
+Service Provider:
+Benedikt Held
+Rotkelchenweg 12
+85591 Vaterstetten
+Germany
+Email: bene-held@web.de
+Phone: +49 017657501141
+
+Thank you for using VoteFlow!`}
         </pre>
       </div>
     </main>

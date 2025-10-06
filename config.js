@@ -2,10 +2,10 @@ import themes from "daisyui/src/theming/themes.js";
 
 const config = {
   // REQUIRED
-  appName: "VoteFLow",
+  appName: "VoteFlow",
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
   appDescription:
-    "The NextJS boilerplate with all you need to build your SaaS, AI tool, or any other web app.",
+    "Simple feature request & feedback management for your iOS/macOS apps. Let your users vote and share ideas.",
   // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
   domainName: "shipfa.st",
   crisp: {
@@ -21,7 +21,7 @@ const config = {
         // REQUIRED — we use this to find the plan in the webhook (for instance if you want to update the user's credits based on the plan)
         priceId: "price_1SEZvHQNMsCITO0SOJ1sT07B",
         //  REQUIRED - Name of the plan, displayed on the pricing page
-        name: "Starter",
+        name: "VoteFlow Lifetime",
         // A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
         description: "Perfect for small projects",
         // The price you want to display, the one user will be charged on Stripe.
@@ -30,11 +30,11 @@ const config = {
         priceAnchor: 39.99,
         features: [
           {
-            name: "VoteFlow",
+            name: "Unlimited Apps",
           },
-          { name: "User oauth" },
-          { name: "Database" },
-          { name: "Emails" },
+          { name: "Analytics Dashboard" },
+          { name: "Swift SDK" },
+          { name: "Database connection" },
         ],
       },
     ],

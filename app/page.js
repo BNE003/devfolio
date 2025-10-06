@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import FeaturesGrid from "@/components/FeaturesGrid";
 import FeatureShowcase from '@/components/FeatureShowcase';
 import FeatureBig from '@/components/FeatureBig';
+import CTAFeatureFlow from '@/components/CTAFeatureFlow';
 
 export default function Home() {
   return (
@@ -26,7 +27,7 @@ export default function Home() {
         <FeaturesGrid />
         <Pricing />
         <FAQ />
-        <CTA />
+        <CTAFeatureFlow />
       </main>
       <Footer />
     </>

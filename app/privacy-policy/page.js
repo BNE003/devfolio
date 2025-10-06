@@ -57,51 +57,89 @@ const PrivacyPolicy = () => {
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Last Updated: 2023-08-25
+          {`Last Updated: January 10, 2025
 
-Thank you for visiting ShipFast ("we," "us," or "our"). This Privacy Policy outlines how we collect, use, and protect your personal and non-personal information when you use our website located at https://shipfa.st (the "Website").
+Thank you for using VoteFlow ("we," "us," or "our"). This Privacy Policy outlines how we collect, use, and protect your personal and non-personal information when you use our service.
 
-By accessing or using the Website, you agree to the terms of this Privacy Policy. If you do not agree with the practices described in this policy, please do not use the Website.
+By accessing or using VoteFlow, you agree to the terms of this Privacy Policy. If you do not agree with the practices described in this policy, please do not use the service.
 
 1. Information We Collect
 
-1.1 Personal Data
+1.1 Personal Data (Developer Accounts)
 
-We collect the following personal information from you:
+We collect the following personal information from developers who use VoteFlow:
 
 Name: We collect your name to personalize your experience and communicate with you effectively.
-Email: We collect your email address to send you important information regarding your orders, updates, and communication.
-Payment Information: We collect payment details to process your orders securely. However, we do not store your payment information on our servers. Payments are processed by trusted third-party payment processors.
+Email: We collect your email address to send you important information regarding your subscription, updates, and communication.
+Payment Information: We collect payment details to process your subscription securely. However, we do not store your payment information on our servers. Payments are processed by trusted third-party payment processors (Stripe).
 
-1.2 Non-Personal Data
+1.2 User-Generated Content (App Users)
+
+VoteFlow collects and stores the following data submitted by your app users through the SDK:
+- Feature requests (title, description)
+- Votes (associated with device identifiers)
+- Comments (author name, text)
+- Device identifiers (for preventing duplicate voting)
+
+This data is stored on behalf of the app developer and is accessible through the developer's dashboard.
+
+1.3 Non-Personal Data
 
 We may use web cookies and similar technologies to collect non-personal information such as your IP address, browser type, device information, and browsing patterns. This information helps us to enhance your browsing experience, analyze trends, and improve our services.
 
 2. Purpose of Data Collection
 
-We collect and use your personal data for the sole purpose of order processing. This includes processing your orders, sending order confirmations, providing customer support, and keeping you updated about the status of your orders.
+We collect and use personal data for:
+- Account management and authentication
+- Order processing and subscription management
+- Providing the VoteFlow service and SDK functionality
+- Customer support
+- Service improvements and analytics
+
+User-generated content is collected to enable the core functionality of VoteFlow: allowing app users to submit, vote on, and discuss feature requests.
 
 3. Data Sharing
 
-We do not share your personal data with any third parties except as required for order processing (e.g., sharing your information with payment processors). We do not sell, trade, or rent your personal information to others.
+We do not share your personal data with any third parties except as required for service operation (e.g., sharing your information with payment processors). We do not sell, trade, or rent your personal information to others.
 
-4. Children's Privacy
+App developers have full access to the feature requests, votes, and comments submitted by their app users through the VoteFlow dashboard.
 
-ShipFast is not intended for children under the age of 13. We do not knowingly collect personal information from children. If you are a parent or guardian and believe that your child has provided us with personal information, please contact us at the email address provided below.
+4. Data Storage and Security
 
-5. Updates to the Privacy Policy
+All data is stored securely using Supabase infrastructure with encryption at rest and in transit. We implement industry-standard security measures to protect your information.
+
+5. Children's Privacy
+
+VoteFlow is not intended for children under the age of 13. We do not knowingly collect personal information from children. If you are a parent or guardian and believe that your child has provided us with personal information, please contact us at the email address provided below.
+
+6. Your Rights (GDPR Compliance)
+
+As a user in the European Union, you have the right to:
+- Access your personal data
+- Request correction of inaccurate data
+- Request deletion of your data
+- Object to processing of your data
+- Request data portability
+
+To exercise these rights, please contact us at bene-held@web.de.
+
+7. Updates to the Privacy Policy
 
 We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. Any updates will be posted on this page, and we may notify you via email about significant changes.
 
-6. Contact Information
+8. Contact Information
 
 If you have any questions, concerns, or requests related to this Privacy Policy, you can contact us at:
 
-Email: marc@shipfa.st
+Service Provider:
+Benedikt Held
+Rotkelchenweg 12
+85591 Vaterstetten
+Germany
+Email: bene-held@web.de
+Phone: +49 017657501141
 
-For all other inquiries, please visit our Contact Us page on the Website.
-
-By using ShipFast, you consent to the terms of this Privacy Policy.`}
+By using VoteFlow, you consent to the terms of this Privacy Policy.`}
         </pre>
       </div>
     </main>
