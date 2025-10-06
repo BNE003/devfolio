@@ -66,14 +66,14 @@ const CTAFeatureFlow = () => {
           className="flex flex-wrap items-center justify-center gap-6 text-base-content/60"
         >
           <div className="flex items-center gap-2">
-            <div className="w-5 h-5 rounded-full bg-success/20 flex items-center justify-center">
-              <Check className="w-3 h-3 text-success" />
+            <div className="w-5 h-5 rounded-full bg-green-500/30 flex items-center justify-center">
+              <Check className="w-3 h-3 text-green-600" />
             </div>
-            <span className="text-sm">No credit card required</span>
+            <span className="text-sm">7-day money-back guarantee</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-5 h-5 rounded-full bg-success/20 flex items-center justify-center">
-              <Check className="w-3 h-3 text-success" />
+            <div className="w-5 h-5 rounded-full bg-green-500/30 flex items-center justify-center">
+              <Check className="w-3 h-3 text-green-600" />
             </div>
             <span className="text-sm">5 minute setup</span>
           </div>
