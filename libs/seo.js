@@ -49,9 +49,9 @@ export const getSEOTags = ({
       title: openGraph?.title || config.appName,
       description: openGraph?.description || config.appDescription,
       // If you add an twitter-image.(jpg|jpeg|png|gif) image to the /app folder, you don't need the code below
-      // images: [openGraph?.image || defaults.og.image],
-      card: "summary_large_image",
-      creator: "@marc_louvion",
+       images: [openGraph?.image || defaults.og.image],
+      //card: "summary_large_image",
+      //creator: "@held_bened48674",
     },
 
     // If a canonical URL is given, we add it. The metadataBase will turn the relative URL into a fully qualified URL
