@@ -9,6 +9,7 @@ export const dynamic = "force-dynamic";
 export async function GET(req) {
   const requestUrl = new URL(req.url);
   const code = requestUrl.searchParams.get("code");
+  const callbackUrl = requestUrl.searchParams.get("callbackUrl");
 
   if (code) {
     const supabase = createRouteHandlerClient({ cookies });
@@ -16,5 +17,10 @@ export async function GET(req) {
   }
 
   // URL to redirect to after sign in process completes
-  return NextResponse.redirect(requestUrl.origin + config.auth.callbackUrl);
+  // Use custom callbackUrl if provided, otherwise use default from config
+  const redirectUrl = callbackUrl
+    ? decodeURIComponent(callbackUrl)
+    : requestUrl.origin + config.auth.callbackUrl;
+
+  return NextResponse.redirect(redirectUrl);
 }

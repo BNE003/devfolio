@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import toast from "react-hot-toast";
 import config from "@/config";
@@ -10,9 +11,19 @@ import config from "@/config";
 // Successfull login redirects to /api/auth/callback where the Code Exchange is processed (see app/api/auth/callback/route.js).
 export default function Login() {
   const supabase = createClientComponentClient();
+  const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [callbackUrl, setCallbackUrl] = useState("");
+
+  useEffect(() => {
+    // Get callbackUrl from query params
+    const callback = searchParams.get("callbackUrl");
+    if (callback) {
+      setCallbackUrl(callback);
+    }
+  }, [searchParams]);
 
   const handleSignup = async (e, options) => {
     e?.preventDefault();
@@ -21,7 +32,12 @@ export default function Login() {
 
     try {
       const { type, provider } = options;
-      const redirectURL = window.location.origin + "/api/auth/callback";
+      let redirectURL = window.location.origin + "/api/auth/callback";
+
+      // Add callbackUrl as query param if it exists
+      if (callbackUrl) {
+        redirectURL += `?callbackUrl=${encodeURIComponent(callbackUrl)}`;
+      }
 
       if (type === "oauth") {
         await supabase.auth.signInWithOAuth({

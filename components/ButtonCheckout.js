@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import apiClient from "@/libs/api";
 import config from "@/config";
+import { getSupabaseClient } from "@/lib/supabase";
 
 // This component is used to create Stripe Checkout Sessions
 // It calls the /api/stripe/create-checkout route with the priceId, successUrl and cancelUrl
@@ -10,9 +12,45 @@ import config from "@/config";
 // You can also change the mode to "subscription" if you want to create a subscription instead of a one-time payment
 const ButtonCheckout = ({ priceId, mode = "payment" }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [user, setUser] = useState(null);
+  const router = useRouter();
+  const supabase = getSupabaseClient();
+
+  useEffect(() => {
+    // Check if user is logged in
+    const checkUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      setUser(user);
+    };
+    checkUser();
+  }, [supabase]);
+
+  useEffect(() => {
+    // Auto-trigger checkout after login if checkout params are present
+    const params = new URLSearchParams(window.location.search);
+    const checkoutPriceId = params.get("checkout");
+    const checkoutMode = params.get("mode");
+
+    if (user && checkoutPriceId && checkoutPriceId === priceId && checkoutMode === mode) {
+      // Remove query params from URL
+      window.history.replaceState({}, '', window.location.pathname);
+
+      // Trigger checkout
+      handlePayment();
+    }
+  }, [user, priceId, mode]);
 
   const handlePayment = async () => {
     setIsLoading(true);
+
+    // If user is not logged in, redirect to signin with priceId to continue checkout after login
+    if (!user) {
+      const checkoutUrl = `${window.location.origin}${window.location.pathname}?checkout=${priceId}&mode=${mode}`;
+      const callbackUrl = encodeURIComponent(checkoutUrl);
+      router.push(`${config.auth.loginUrl}?callbackUrl=${callbackUrl}`);
+      setIsLoading(false);
+      return;
+    }
 
     // Track checkout initiation
     window?.datafast("checkout_initiated", {
