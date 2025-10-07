@@ -43,7 +43,7 @@ const ButtonSignin = ({ text = "Get started", extraStyle }) => {
             {user?.user_metadata?.name?.charAt(0) || user?.email?.charAt(0)}
           </span>
         )}
-        {user?.user_metadata?.name || user?.email || "Account"}
+        Dashboard
       </Link>
     );
   }
