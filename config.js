@@ -7,7 +7,7 @@ const config = {
   appDescription:
     "Simple feature request & feedback management for your iOS/macOS apps. Let your users vote and share ideas.",
   // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
-  domainName: "shipfa.st",
+  domainName: "voteflow.dev",
   crisp: {
     // Crisp website ID. IF YOU DON'T USE CRISP: just remove this => Then add a support email in this config file (mailgun.supportEmail) otherwise customer support won't work.
     id: "",
